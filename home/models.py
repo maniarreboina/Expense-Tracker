@@ -25,6 +25,7 @@ PROFESSION_CHOICES =[
     ("Other","Other")
 ]
 class Addmoney_info(models.Model):
+    id=models.BigAutoField(primary_key=True)
     user = models.ForeignKey(User,default = 1, on_delete=models.CASCADE)
     add_money = models.CharField(max_length = 10 , choices = ADD_EXPENSE_CHOICES )
     quantity = models.BigIntegerField()
@@ -34,6 +35,7 @@ class Addmoney_info(models.Model):
         db_table:'addmoney'
         
 class UserProfile(models.Model):
+    id=models.BigAutoField(primary_key=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     profession = models.CharField(max_length = 10, choices=PROFESSION_CHOICES)
     Savings = models.IntegerField( null=True, blank=True)
